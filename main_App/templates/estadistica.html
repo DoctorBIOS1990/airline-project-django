@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>{% block head %} {{ block.super }} {% endblock %}</head>
+     {% load static %}
+<body>
+         
+{% block content %}
+    <style>
+            progress {
+                display:block;
+            }
+            progress::-webkit-progress-bar {
+                background: white;
+            }
+            progress::-moz-progress-bar { 
+                background: white;
+            } 
+    </style>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"><i class="fa fa-area-chart"></i> Estadistica.</h1>
+                <p>
+                  Con nuestro innovador y eficiente sistema registramos la actividad, 
+                  la experiencia de seguimiento y gestión de actividades a un nuevo nivel. 
+                  Desde monitorear reservas de vuelo en tiempo real hasta rastrear 
+                  la llegada de pasajeros y controlar el estado de las operaciones
+                </p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+             
+        <div class="row">
+            <!-- Pastel -->
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <strong><i class="fa fa-bar-chart"></i> Analitica de Datos </strong>
+                    </div>
+                    <div class="panel-body">
+                        <!--Analitica -->
+                            <div class="col-lg-3"> <!--MARGEN--></div>
+                            <div class="col-lg-6">
+                                <center>
+                                    <h1 style="font-size: 75px; margin-top: 0;"><i class="fa fa-leanpub"></i></h1>
+                                    Análisis de sus datos en el Sistema
+                                </center>
+    
+                                <h5>
+                                    <table  class="table table-bordered table-hover" id="analitica">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center"><b>Conceptos</b></th>
+                                                <th class="text-center"><b>Analisis</b></th>
+                                            </tr>
+                                        </thead>
+    
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <strong>Total Facturado:</strong>
+                                                </td>
+                                                <td class="text-center">
+                                                    $ <span class="counter">{{total_facturado.total}}</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Pasaje mas alto:</strong>
+                                                </td>
+                                                <td class="text-center">
+                                                    $ <span class="counter">{{max_facturado.max}}</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    </span><strong>Pasaje mas barato:</strong>
+                                                </td>
+                                                <td class="text-center">
+                                                    $ <span class="counter">{{min_facturado.min}}</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Kilometraje:</strong>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="counter">{{distancia.total}} </span>Km
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Disponibibilidad Total:</strong>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="counter">{{disponibilidad.total}}</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Maximo descuento aplicado:</strong>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="counter">{{max_descuento.max}}</span> %
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Tarifa más popular:</strong>
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ tarifa_popular.0.0 }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </h5>
+                            </div>
+                    </div>
+                        <!-- Fin Analitica -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+<!-- Toma de Decisiones -->
+        <div class="col">
+            <!-- Pastel -->
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <strong><i class="fa fa-bar-chart"></i> Toma de Decisiones </strong>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="col">
+                        <!--Analitica -->
+                            <div class="col-lg-6">
+                                <center>
+                                    <h1 style="font-size: 75px; margin-top: 0;"><i class="fa fa-compass"></i></h1>
+                                    Contabilizando ciudades visitadas
+                                </center>
+    
+                                <h5>
+                                    <table  class="table table-bordered table-hover" id="analitica">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center"><b>Ciudades</b></th>
+                                                <th class="text-center"><b>Viajes</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for vis in visitas_Ciudades %}
+                                            <tr>
+                                                <td class="text-center"><span>{{ vis.0 }}</span></td>
+                                                <td class="text-center"><span class="counter">{{ vis.1 }}</span></td>
+                                            </tr>
+                                            {% empty %}
+                                                <tr>
+                                                    <td colspan="8" class="text-center">
+                                                        <strong><i class="fa fa-frown-o"></i> No hay datos para analisis. </strong> 
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}  
+                                        </tbody>
+                                    </table>
+                                </h5>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <center>
+                                    <h1 style="font-size: 75px; margin-top: 0;"><i class="fa fa-plane"></i></h1>
+                                    Asignaciones de aviones actuales
+                                </center>
+
+                                <h5>
+                                    <table  class="table table-bordered table-hover" id="analitica">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center"><b>Aeropuertos</b></th>
+                                                <th class="text-center"><b>Cantidad</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for a in asignacion %}
+                                            <tr>
+                                                <td class="text-center"><span>{{ a.0 }}</span></td>
+                                                <td class="text-center"><span class="counter">{{ a.1 }}</span></td>
+                                            </tr>
+                                            {% empty %}
+                                                <tr>
+                                                    <td colspan="8" class="text-center">
+                                                        <strong><i class="fa fa-frown-o"></i> No hay datos para analisis. </strong> 
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}  
+                                        </tbody>
+                                    </table>
+                                </h5>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- Fin Analitica -->
+
+
+<!-- Pastel Actividad base de Datos-->
+<div class="col">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <strong><i class="fa fa-balance-scale"></i> Actividad de datos</strong>
+            </div>
+            <div class="panel-body">
+                <p> 
+                    <strong>
+                    <h4><i class="fa fa-eye"></i> Mostramos aqui las comparativas de las tablas activas en el sistema.</h4>
+                    </strong>
+                </p>
+                <div class="flot-chart">
+                    <div class="flot-chart-content" id="flot-pie-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Capturing data into template-->
+<section id="chart-data" class="text-center" hidden> 
+    <input id="contarPasajeros" type="number" value="{{count_pasajeros}}" style="width:40px;">
+    <input id="contarAviones" type="number" value="{{count_aviones}}" style="width:40px;">
+    <input id="contarAeropuertos" type="number" value="{{count_aeropuertos}}" style="width:40px;">
+    <input id="contarTramos" type="number" value="{{count_tramos}}" style="width:40px;">
+    <input id="contarVuelos" type="number" value="{{count_vuelos}}" style="width:40px;">
+    <input id="contarTarifas" type="number" value="{{count_tarifas}}" style="width:40px;">
+    <input id="contarReservas" type="number" value="{{count_reservas}}" style="width:40px;">
+</section>
+
+{% load static %}
+    <script defer src="{% static 'js/flot/jquery.flot.js' %}"></script>
+    <script defer src="{% static 'js/flot/jquery.flot.pie.js' %}"></script>
+    <script defer src="{% static 'js/flot/jquery.flot.tooltip.min.js' %}"></script>
+    <script defer src="{% static 'js/flot-data.js' %}"></script>
+   
+ {% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+#aviones, #pasajeros, #aeropuertos, #tramos,
+#vuelos, #tarifas, #usuarios, #reservas{
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(210, 174, 67)), color-stop(99%,rgb(14, 14, 14)));
+}
+
+.panel-footer{
+    color: black;
+}

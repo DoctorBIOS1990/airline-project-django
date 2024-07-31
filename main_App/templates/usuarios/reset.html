@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"><i class="fa fa-key"></i> Resetear Password: {{ usuario }}</h1>
+                </div>
+            </div>
+            <div class="col">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-5">
+                    <div class="panel panel-default" id="listar">
+                        <div class="panel-heading">
+                            <strong><i class="fa fa-edit"></i> FORMULARIO DE ENTRADA</strong>
+                        </div>
+                        <div class="panel-body">
+
+                            {% if form.errors %}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+
+                                <strong>¡Error!</strong> Revise el formulario:
+                                <li>Deben coincidir.</li>
+                                <li>Debe contener 1 caracter especial.</li>
+                            </div>
+                            {% endif %}
+                            
+                        <div class="row-lg-8">    
+                            <div class="text-center">
+                                <label for="usuario"><i class="fa fa-user"></i> Usuario:</label>
+                                <input type="text" id="usuario" required disabled value="{{usuario}}">
+                            </div></br>
+
+                            <form method="post" role="form" id="Formulario">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="password1"><i class="fa fa-key"></i> Contraseña:</label>
+                                    <input type="password" id="pass1" name="password1" class="form-control" required placeholder="example123*">
+                                </div>
+    
+                                <div class="form-group">
+                                    <label for="password2"><i class="fa fa-key"></i> Confirme Contraseña:</label>
+                                    <input type="password" id="pass2" name="password2" class="form-control" required placeholder="example123*">
+                                </div>
+
+                                <div class="text-center">
+                                    <input type="submit" value="Cambiar" class="btn btn-danger">
+                                    <a href="{% url 'listar_usuarios' %}" class="btn btn-default">  <i class="fa fa-arrow-circle-left"></i> Retroceder</a>
+                                </div>
+                            
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal Warning -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id="modalBarWarning" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">
+                <i class="fa fa-warning"></i> Advertencia</h4>
+            </div>
+
+            <div class="modal-body">
+                <center><h4 id="message">ESTO ES UN MENSAJE</h4></center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
+    {% endblock %}
+</body>
+
+{% block javascript %}
+{{ block.super }}
+{% endblock %}

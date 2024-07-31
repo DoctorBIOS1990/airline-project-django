@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"><i class="fa fa-edit 5x"></i> Editar aeropuerto.</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default" id="listar">
+                        <div class="panel-heading">
+                            <strong><i class="fa fa-edit"></i> FORMULARIO DE ENTRADA</strong>
+                        </div>
+                        <div class="panel-body">
+
+                         <div class="col-lg-6">   
+                            <form method="post" role="form" id="passengerForm">
+                                {% csrf_token %}
+                           
+                                <div class="form-group">
+                                    <label for="nombre"><i class="fa fa-question-circle"></i> Nombre:</label>
+                                    <input type="text" id="nombre" name="nombre" class="form-control" maxlength="50" required value ="{{form.nombre.value}}" placeholder="Conocido por...">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ciudad"><i class="fa fa-bank"></i> Ciudad:</label>
+                                    <input type="text" id="ciudad" name="ciudad" class="form-control" maxlength="50" required value ="{{form.ciudad.value}}" placeholder="Se encuentra en...">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="sigla"><i class="fa fa-flag"></i> Sigla:</label>
+                                    <input type="text" id="sigla" name="sigla" class="form-control" maxlength="50" required value ="{{form.sigla.value}}" placeholder="Identificación">
+                                </div>
+                            </div>
+                                <div class="col-lg-6">
+                                    <div class="alert alert-warning">
+                                        <h3 style="margin-top:0px;"><i class="fa fa-warning 5x"></i> Atención</h3>
+                                        <p>Es necesario cumplir con la politica de datos del sistema para su
+                                           correcto guardado, y evitar informacion incorrecta.
+                                        </p></br>
+                                        <i class="fa fa-user"></i> <strong>Mensaje del Administrador</strong>
+                                        <p>Favor de atender los campos introducidos y sus alertas </p>
+                                    </div>                                
+                                <hr>
+                                <div class="text-center">
+                                    <input type="submit" value="Actualizar" class="btn btn-success">
+                                    <a href="{% url 'listar_aeropuertos' %}" class="btn btn-default">  <i class="fa fa-arrow-circle-left"></i> Retroceder</a>
+                                </div>
+
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+
+{% block javascript %}
+{{ block.super }}
+
+{% endblock %}

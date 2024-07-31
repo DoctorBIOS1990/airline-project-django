@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% block head %}
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>AeroGesti - Denegación</title>
+        {% load static %}
+        <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+        <!-- Bootstrap Core CSS -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="{% static 'css/login.css' %}" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    </head>
+{% endblock %}
+
+<body>
+   <div class="container">
+    <div class="row" id="contact" >
+      <div class="col-md-4"></div>
+        <div class="col-md-5">
+        
+          <section class="contact" id="contact">
+            <div class="contact-text">
+              <center><p style="font-size: 75px;"><i class="fa fa-user-times"></i></p>
+				<h1>¡Ha sido denegado!</h1></center>
+              <center>
+				<p style="font-size: 16px; text-align: Justify;"> 
+					Estimado usuario, usted no tiene permiso suficiente para acceder al recurso solicitado.
+					Por favor, contacte al administrador del sistema para obtener acceso.
+				</p>
+				
+				<div id="toBack" class="text-center;">
+					<h4>
+					  <a href="{% url 'dashboard' %}">
+						<span><i class="fa fa-arrow-circle-left"></i> Ir atrás</span>
+					  </a>
+					</h4>
+				  </div>
+              </center>
+            </div>
+        </section>
+        </div>
+    </div>
+</div>
+</body>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="{% static 'js/startmin.js' %}"></script>
+</html>

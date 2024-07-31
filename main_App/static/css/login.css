@@ -1,0 +1,162 @@
+﻿:root{
+  --span:rgb(31, 174, 119);
+  --fronColor: cornflowerblue;
+  --background:#2a2a2a;
+  --textColor: #fff;
+  --secondaryColor:#ccc;
+  --border-bottom:#ffffff1a;
+  --secondaryBackground: #333333;
+  --boxBackground:#ffffff99;
+  --textButtonHover:#010101;
+  --readHover:#202020;
+}
+
+*{
+  font-family: 'MontSerrat Medium', sans-serif;
+  transition: all .45s ease;
+  text-decoration: none !important;
+}
+
+
+html{
+	min-height:100%;
+}
+
+body{
+  background-color: #202020;
+  background:url('../images/Background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: color-burn;
+}
+
+.navbar{    
+  background: rgb(0,0,0,.6);
+  border: none;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+#empezar, h1, h3, h4{
+  color:white;
+}
+
+#footer{
+  text-shadow: 2px 2px black;   
+}
+
+span{
+color:var(--span);
+-webkit-filter: drop-shadow(5px 5px 5px #222);
+filter: drop-shadow(5px 5px 5px #222);
+}
+
+h1{
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+.navbar-toggle{
+  display: none;
+}
+
+#entrada{
+  max-width: 550px;
+  text-align: left;
+  padding-left: 50px;
+}
+
+.contact{
+  display: grid;
+  align-items: center;
+  gap: 2.5rem;
+  background: rgb(0,0,0,.6);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  margin-top: 100px;
+}
+
+#inputButton{
+  background-color:var(--readHover) !important;
+  color: white;
+  border: none;
+}
+
+.contact-text h4{
+  color: var(--textColor);
+  margin: 18px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.contact-text{
+    padding-right:50px;
+    padding-left:50px;
+    padding-top:50px;
+}
+
+.contact-text h2{
+  color: white;
+  margin: 18px 0;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.contact-text p{
+  color: var(--textColor);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.contact-form form{
+  position: relative;
+}
+
+.contact-form form input,
+#comentario{
+  width: 100%;
+  padding: 14px;
+  background: var(--readHover);
+  color: var(--textColor);
+  border:none;
+  outline: none;
+  font-size: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.contact-form .submit{
+  display: inline-block;
+  font-size: 16px;
+  background: var(--span);
+  color: var(--textColor);
+  width: 160px;
+  transition: all .45s ease;
+}
+
+.contact-form .submit:hover{
+  transform:scale(1.1);
+  cursor: pointer;
+}
+
+.contact-form{
+  padding-right:50px;
+  padding-left:50px;
+  padding-top:50px;
+}
+
+.last-text p{
+ color: #ccc;
+ font-size: 14px;
+}
+
+#toBack{
+  padding-bottom: 5px;
+}
+
+#toBack a:hover{
+  color: white !important;
+}

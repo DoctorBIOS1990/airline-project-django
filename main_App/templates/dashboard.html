@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>{% block head %} {{ block.super }} {% endblock %}</head>
+
+<body>
+
+{% block content %}{% load static %}
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"><i class="fa fa-dashboard 5x"></i> Dash<strong>board</strong></h1>
+                <p>
+                    Nuestro tablero proporciona una visión integral y detallada de todas las actividades de la aerolínea. 
+                    Con funciones intuitivas y datos actualizados al instante, gestionar y optimizar 
+                    cada aspecto de nuestras operaciones nunca ha sido tan fácil. 
+                </p>
+           
+            </br>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6"> <!--   ITEM 1  -->
+                <div class="panel panel-primary" id="listar">
+                    <div class="panel-heading" id="aviones">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <h1 style="font-size: 72px; margin-top: 0;margin-bottom: 0;" ><i class="fa fa-space-shuttle"></i></h1>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><span class="counter">{{count_aviones}}</span></div>
+                                <div>Aviones</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url 'listar_aviones' %}">
+                        <div class="panel-footer">
+                            <span class="pull-left">Ver Detalles</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6"> <!--   ITEM 2  -->
+                <div class="panel panel-primary" id="listar">
+                    <div class="panel-heading" id="pasajeros">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <h1 style="font-size: 72px; margin-top: 0;margin-bottom: 0;" ><i class="fa fa-male"></i></h1>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><span class="counter">{{count_pasajeros}}</span></div>
+                                <div>Pasajeros</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url 'listar_pasajeros' %}">
+                        <div class="panel-footer">
+                            <span class="pull-left">Ver detalles</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6"> <!--   ITEM 3  -->
+                <div class="panel panel-primary" id="listar">
+                    <div class="panel-heading" id="aeropuertos">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <h1 style="font-size: 72px; margin-top: 0;margin-bottom: 0;" ><i class="fa fa-globe"></i></h1>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><span class="counter">{{count_aeropuertos}}</span></div>
+                                <div>Aeropuertos</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url 'listar_aeropuertos' %}">
+                        <div class="panel-footer">
+                            <span class="pull-left">Ver detalles</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6"> <!--   ITEM 4  -->
+                <div class="panel panel-primary" id="listar">
+                    <div class="panel-heading" id="tramos">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <h1 style="font-size: 72px; margin-top: 0;margin-bottom: 0;" ><i class="fa fa-map-o"></i></h1>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><span class="counter">{{count_tramos}}</span></div>
+                                <div>Tramos</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">Ver detalles</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6"> <!--   ITEM 5  -->
+                <div class="panel panel-primary" id="listar">
+                    <div class="panel-heading" id="vuelos">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <h1 style="font-size: 72px; margin-top: 0;margin-bottom: 0;" ><i class="fa fa-plane"></i></h1>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><span class="counter">{{count_vuelos}}</span></div>
+                                <div>Vuelos</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">Ver Detalles</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6"> <!--   ITEM 6  -->
+                <div class="panel panel-primary" id="listar">
+                    <div class="panel-heading" id="tarifas">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <h1 style="font-size: 72px; margin-top: 0;margin-bottom: 0;" ><i class="fa fa-dollar"></i></h1>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><span class="counter">{{count_tarifas}}</span></div>
+                                <div>Tarifas</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url 'listar_tarifas' %}">
+                        <div class="panel-footer">
+                            <span class="pull-left">Ver detalles</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6"> <!--   ITEM 7  -->
+                <div class="panel panel-primary" id="listar">
+                    <div class="panel-heading" id="reservas">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <h1 style="font-size: 72px; margin-top: 0;margin-bottom: 0;" ><i class="fa fa-book"></i></h1>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><span class="counter">{{count_reservas}}</span></div>
+                                <div>Reservas</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url 'listar_reservas' %}">
+                        <div class="panel-footer">
+                            <span class="pull-left">Ver detalles</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6"> <!--   ITEM 8  -->
+                <div class="panel panel-primary" id="listar">
+                    <div class="panel-heading" id="usuarios">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <h1 style="font-size: 72px; margin-top: 0;margin-bottom: 0;" ><i class="fa fa-users"></i></h1>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><span class="counter">{{count_usuarios}}</span></div>
+                                <div>Usuarios</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">Ver detalles</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </br>
+    <div class="col-lg-12">
+        <h5 class="description text-center"><i class="fa fa-users"></i> Equipo #3 - <i class="fa fa-leanpub"></i> Año Académico: 4to</h5>
+        <h5 class="description text-center"><i class="fa fa-laptop"></i> Facultad de Ingeniería Informática.</h5>
+    </div>
+        <!-- /.panel -->
+    </div>
+
+</div>
+{% endblock %}
+{% block javascript %} {{ block.super }} {% endblock %}

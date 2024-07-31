@@ -1,0 +1,47 @@
+aside, aside li{
+    font-size: 18px;
+    background: rgb(0,0,0,.6);
+    border: none;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+#listar{
+   -webkit-filter: drop-shadow(3px 3px 3px #222);
+    filter: drop-shadow(2px 2px 2px #222);
+}
+
+#modalBarTitle{
+    background-color:rgb(217,83,79);
+    margin: 2px;
+    color: white;
+}
+
+#modalBarTitle button{
+    opacity:70%;
+    color: white;
+}
+
+*{
+    font-family: 'MontSerrat Medium', sans-serif;
+    transition: all .45s ease;
+}
+
+#wrapper {
+    width: 100%;
+    background-image: url(../images/Fondo.jpg);
+}
+
+#page-wrapper {
+    padding-top: 30px;
+    min-height: 568px;
+    /*background-color: #fff;*/
+}
+
+.page-header{
+    color:white;
+}
+
+.btn-success {
+    margin-left: 10px !important;
+}

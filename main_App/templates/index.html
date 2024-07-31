@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% block head %}
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Portal - AeroGesti</title>
+        {% load static %}
+        <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/startmin.css' %}" rel="stylesheet">
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/index.css' %}" rel="stylesheet">
+        <script type="text/javascript" src="{% static 'js/scrollreveal.js' %}"></script>
+    </head>
+{% endblock %}
+
+<body>
+  <div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">
+            
+            <p>
+            <img src="{% static './images/logo.png' %}" alt="logo" width="30"/>    
+            Aero<strong>Gesti</strong></p>
+          </a>
+        </div>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <ul class="nav navbar-right navbar-top-links">
+       
+        <li class="dropdown">
+                <a id="empezar" class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i  class="fa fa-briefcase fa-fw"></i> Empezar ahora <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                  {% if user.is_authenticated %}
+                  <div class="text-center">
+                    <center>
+                      <img src="{% static './images/user.png' %}" alt="user logo" width="40"/><br>
+                      <strong> {{ user.username }}</strong>
+                      <p>{{user.rol.nombre}}</p>
+                    </center>
+                  </div>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="{% url 'dashboard' %}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                  </li>
+                    <li class="divider"></li>
+                    {% endif %}
+
+                    {% if not user.is_authenticated %}
+                    <li>
+                      <a href="{% url 'iniciar_sesion' %}"><i class="fa fa-key fa-fw"></i> Autenficarse</a>
+                    </li>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                    <li>
+                      <a href="{% url 'cerrar_sesion' %}"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesion</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </li>
+        </ul>
+        <!-- /.navbar-top-links -->
+    </nav>
+    
+    <div class="header">
+
+        <div class="title-container text-center">
+        
+          <h1></br></br>
+            <p><img id="logo" src="{% static 'images/logo.png' %}" alt="Logo" width="150px"></p>Bienvenido a Aereo<strong>Gesti</strong>
+          </h1>
+
+         </br></br>
+          <div class="col" >
+            <div class="col-lg-12">
+                  <div class="col-lg-7">
+                    <div id="entrada"> 
+                      <h1>Hola <img src="{% static 'images/hi.gif' %}" width="30">, somos  
+                        <span class="typer" 
+                              id="some-id" 
+                              data-delay="200" 
+                              data-delim=":" 
+                              data-words="apasionados.:comprometidos.:dedicados.: su mejor opción" 
+                              data-colors="rgb(174, 163, 67);">apasionados.</span>
+                        <span class="cursor" 
+                              data-cursordisplay="_" 
+                              data-owner="some-id" 
+                              style="transition: all 0.1s ease 0s; opacity: 1;">_
+                        </span>
+                      </h1>
+                    <h3>
+                      <p>
+                        Nuestra plataforma ha sido diseñada pensando en usted, combinando la más
+                        avanzada tecnología con una interfaz amigable, para que puedas centrarte en lo realmente
+                        importante.						
+                      </p>
+                    </h3>
+
+                    {% if success_message %}
+                    <div class="alert alert-warning alert-dismissible" style="width:250px;">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      <i class="fa fa-check"></i><strong> {{ success_message }}</strong>
+                    </div>
+                    {% endif %}
+                    
+                    </div>
+                  </div>
+
+                  <div class="col-lg-2">
+                      <div id="indexCard" class="hero-widget well well-sm">
+                        <div class="icon">
+                            <i class="glyphicon glyphicon-user" ></i>
+                        </div>
+                        <div class="text">
+                             <h2 class="counter">100</h2>
+                            <label>Empleados</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                      <div id="indexCard2" class="hero-widget well well-sm">
+                        <div class="icon">
+                            <i class="glyphicon glyphicon-star" id="iconIndex"></i>
+                        </div>
+                        <div class="text">
+                             <h2 class="counter">50</h2>
+                            <label>Instalaciones</label>
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <video autoplay loop="true" id="video_background" controls muted>
+            <source src="{% static 'images/Video.mp4' %}" type="video/mp4">  
+        </video>
+              
+        <center>
+          <a href="#contact"><h4 class="description text-center">
+            <i class="fa fa-arrow-circle-down"></i> Adyudenos a <span>Mejorar</span>!</h4></a></br>
+        </center>  
+    </div>
+
+<!--ABOUT AREA-->
+    <div id="about" class="about-main pad-top-100 pad-bottom-100">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="wow fadeIn">
+                     <h2 class="block-title" id="block_about"> Acerca de Nosotros.</h2>
+                     </br>
+                      <marquee behavior="alternate" scrolldelay="200">
+                        <p><strong>¡Comienza hoy tu viaje al máximo nivel!</strong></p>
+                      </marquee></br></br>
+          
+                      <p id="codewrite">
+                        ¡Descubre una nueva forma de volar con nuestro servicios!</br></br>
+                        Nuestro compromiso es brindarte una experiencia de viaje inolvidable, 
+                        donde la comodidad y la seguridad son nuestra prioridad. Desde la calidez 
+                        de nuestro personal hasta la excelencia en nuestros servicios a bordo, cada 
+                        momento con AeroGesti es una experiencia de alto vuelo.</br></br>
+                        ¡Reserva ahora y déjate llevar por el cielo con nosotros, 
+                        donde tus sueños despegan hacia nuevos destinos con confianza y estilo!"
+                      </p>
+
+                  </div>
+              </div>
+              <!-- end col -->
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeIn;">
+                      <div class="about-images">
+                          <img id="s1" class="about-main" src="{% static 'images/services.jpg' %}" alt="About Main Image" width>
+                          <img id="s2" class="about-inset" src="{% static 'images/services2.jpg' %}" alt="About Inset Image">
+                      </div>
+                  </div>
+              </div>
+              <!-- end col -->
+          </div>
+          <!-- end row -->
+      </div>
+      <!-- end container -->
+  </div>
+
+
+<!-- CONTACT AREA-->
+<div id="fragment-footer">
+  <a><h4 class="description text-center"><i class="fa fa-commenting"></i> Dejenos sus <span>opiniones</span>!</h4></a>
+</div>
+    
+  <footer>
+    <section class="contact" id="contact">
+        <div class="contact-text">
+            <h1>Contactenos!</h1>
+            <center>
+              <h1><i class="fa fa-paper-plane-o"></i> Escriba su comentario.<h1>
+              <h2>Gracias por su <span>visita</span>!</h2>
+            </center>
+          </br></br></br>
+            <div id="footer">
+              <h4 class="description text-center"><i class="fa fa-users"></i> Equipo #3 - <i class="fa fa-leanpub"></i> Año Académico: 4to</h4>
+              <h4 class="description text-center"><i class="fa fa-laptop"></i> Facultad de Ingeniería Informática.</h4>
+          </div>
+        </div>
+    
+        <div class="contact-form">
+            <form name="mensaje" method="POST" role="form">
+              {% csrf_token %}
+                <input required name="nombre" id="nombre" type="text" placeholder="Jhon Doe" autocomplete="on" maxlength="50" title="Maximo 50 caracteres.">
+                <input required name="email" id="email" type="email" placeholder="jhondoe@gmail.com" autocomplete="on"></br>
+                <textarea name="comentario" id="comentario" cols="35" rows="10">Escriba un comentario</textarea>
+                <center><input type="submit" value="Enviar" class="submit"></center>
+            </form>
+           
+        </div>
+    </section>
+</footer>
+
+<div id="fragment-footer"> 
+    <h4 class="description text-center"><i class="fa fa-graduation-cap"></i>Universidad de Oriente. 2024</h4>
+</div>
+
+<a href="#" class="scrollup" style="display: block;">Scroll</a>
+
+</body>
+        {% load static %}
+        <script defer src="{% static 'js/ScrollUp.js' %}"></script>
+        <script src="{% static 'js/index.js' %}"></script> 
+        <script src="{% static 'js/moment.js' %}"></script> 
+        <script src="{% static 'js/all.js' %}"></script>
+
+        <!-- jQuery -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="{% static 'js/metisMenu.min.js' %}"></script>
+        <script src="{% static 'js/waypoints.min.js' %}"></script>
+        <script src="{% static 'js/jquery.counterup.min.js' %}"></script>        
+
+        <script>
+          $('.counter').counterUp({
+              delay: 10,
+              time: 1000
+          });
+        </script>
+
+ </html>

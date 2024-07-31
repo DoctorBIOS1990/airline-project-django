@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"><i class="fa fa-edit"></i> Editar rol.</h1>
+                </div>
+            </div>
+            <div class="col" >
+                <div class="col-lg-3"></div>                
+                <div class="col-lg-6">
+                    <div class="panel panel-default" id="listar">
+                        <div class="panel-heading">
+                            <strong><i class="fa fa-edit"></i> FORMULARIO DE ENTRADA</strong>
+                        </div>
+                        <div class="panel-body">
+                            <h1 class="text-center"><i class="fa fa-key"></i></h1>
+                            <h4 class="text-center">Está cambiando un Rol</h4></br>
+                                <div class="row-lg-9">    
+                                    <form method="post" role="form" id="Formulario">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <label for="nombre"><i class="fa fa-key"></i> Nombre del Rol:</label>
+                                            <input type="text" id="nombre" name="nombre" class="form-control" maxlength="200" required placeholder="Nombre de la responsabilidad" value="{{form.nombre.value}}">
+                                        </div>
+
+                                        <div class="text-center">
+                                            <br>
+                                            <input type="submit" value="Guardar" class="btn btn-success">
+                                            <a href="{% url 'listar_roles' %}" class="btn btn-default">  <i class="fa fa-arrow-circle-left"></i> Retroceder</a>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>   
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+
+{% block javascript %}
+{{ block.super }}
+{% load static%}
+    <script src="{% static 'js/ValidatePasajero.js' %}"></script>
+{% endblock %}

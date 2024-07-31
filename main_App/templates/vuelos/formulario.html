@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"><i class="fa fa-plus 5x"></i> Añadir vuelo.</h1>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-lg-12">
+                    <div class="panel panel-default" id="listar">
+                        <div class="panel-heading">
+                            <strong><i class="fa fa-edit"></i> FORMULARIO DE ENTRADA</strong>
+                        </div>
+                        <div class="panel-body">
+
+                        <div class="col-lg-6">    
+                            <form method="post" role="form" id="Formulario">
+                                {% csrf_token %}
+                                
+                                <div class="form-group">
+                                    <label for="fecha"><i class="fa fa-calendar"></i> Fecha:</label>
+                                    <input type="date" id="fecha" name="fecha" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="avion"><i class="fa fa-space-shuttle"></i> Avion:</label>
+                                    <select id="avion" class="form-control" name="avion" required>
+                                      <option value="" selected disabled>--- Seleccione un avion ---</option>
+                                      {% for avion in aviones %}
+                                      <option value="{{ avion.pk }}">{{ avion.marca }}- {{ avion.modelo }}</option>
+                                      {% endfor %}
+                                    </select>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="aeropuerto_salida"><i class="fa fa-globe"></i> Salida de:</label>
+                                    <select id="aeropuerto_salida" class="form-control" name="aeropuerto_salida" required>
+                                      <option value="" selected disabled>--- Seleccione un Aeropuerto ---</option>
+                                      {% for aeropuerto in aeropuerto_salida %}
+                                      <option value="{{ aeropuerto.pk }}">{{ aeropuerto.nombre }}</option>
+                                      {% endfor %}
+                                    </select>
+                                  </div>
+
+                                <div class="form-group">
+                                    <label for="aeropuerto_llegada"><i class="fa fa-globe"></i> Entrada en:</label>
+                                    <select id="aeropuerto_llegada" class="form-control" name="aeropuerto_llegada" required>
+                                      <option value="" selected disabled>--- Seleccione un Aeropuerto ---</option>
+                                      {% for aeropuerto in aeropuerto_entrada %}
+                                      <option value="{{ aeropuerto.pk }}">{{ aeropuerto.nombre }}</option>
+                                      {% endfor %}
+                                    </select>
+                                  </div>
+                                  
+                            </div>
+                                <div class="col-lg-6">
+                                    <div class="alert alert-warning">
+                                        <h3 style="margin-top:0px;"><i class="fa fa-warning 5x"></i> Atención</h3>
+                                        <p>Es necesario cumplir con la politica de datos del sistema para su
+                                           correcto guardado, y evitar informacion incorrecta.
+                                        </p></br>
+                                        <i class="fa fa-user"></i> <strong>Mensaje del Administrador</strong>
+                                        <p>Favor de atender los campos introducidos y sus alertas </p>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <input id="guardar" type="submit" value="Guardar Vuelo" class="btn btn-success">
+                                        <a href="{% url 'listar_vuelos' %}" class="btn btn-default">  <i class="fa fa-arrow-circle-left"></i> Retroceder</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal Warning -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id="modalBarWarning" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">
+                <i class="fa fa-warning"></i> Advertencia</h4>
+            </div>
+
+            <div class="modal-body">
+                <center><h4 id="message">ESTO ES UN MENSAJE</h4></center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
+
+{% load static%}
+<script src="{% static 'js/ValidateAero.js' %}"></script>
+
+{% endblock %}
+
+{% block javascript %}
+{{ block.super }}
+
+
+{% endblock %}

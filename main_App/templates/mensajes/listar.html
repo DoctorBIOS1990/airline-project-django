@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"><i class="fa fa-inbox"></i> Mensajes recibidos.</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="listar" class="panel panel-primary">
+                    <div class="panel-heading">
+                        <i class="fa fa-paper-plane-o"></i><strong> Cola de Mensajes</strong>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive ">
+                        <center>
+                                <p style="font-size: 50px"><i class="fa fa-paper-plane-o"></i>                           
+                                <strong style="font-size: 20px;"> Total: ( {{ total }} )</strong></p>
+                        </center>
+
+                            <table class="table table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Fecha</th>
+                                        <th>Email</th>
+                                        <th hidden>Comentario</th>
+                                        <th class="text-center">OPCIONES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for m in mensajes %}
+                                    <tr class="odd gradeX">
+                                        <td>{{ m.nombre }}</td>
+                                        <td>{{ m.fecha }}</td>
+                                        <td>{{ m.email }}</td>
+                                        <td hidden>{{ m.comentario }}</td>
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn-primary btn-xs"
+                                                data-toggle="modal" data-target="#myModal"
+                                                data-nombre="{{ m.nombre }}"
+                                                data-comentario="{{ m.comentario }}"
+                                                data-email="{{ m.email }}" title="Ver Mensaje">
+                                                <i class="fa fa-eye"></i> 
+                                            </button>
+                                            {% if user.rol.nombre == 'Administrador' %}
+                                            <a href="{% url 'eliminar_mensaje' m.id %}"
+                                                class="btn btn-danger btn-xs" title="Eliminar">
+                                                <i class="fa fa-trash"></i> 
+                                            </a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="8" class="text-center">
+                                            <strong><i class="fa fa-frown-o"></i> No hay mensajes para mostrar. </strong> 
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-paper-plane-o"></i> Cuerpo del Mensaje</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="panel-body" style="background-image: none;">
+                    <div class="form-group">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr class="odd gradeX">
+                                    <td class="text-center"><strong><i class="fa fa-user"></i> Nombre:</strong>
+                                        <td><strong id="modal-nombre"></strong></td>
+                                    </td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td class="text-center"><strong><i class="fa fa-inbox"></i> Email:</strong>
+                                        <td><strong id="modal-email"></strong></td>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-hover">
+                            <tbody>
+                                <td class="odd gradeX">
+                                    <strong id="modal-comentario"></strong>
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-eye"></i> Leido</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
+
+{% endblock %}
+
+{% block javascript %}
+{{ block.super }}
+    <script>
+        $(document).ready(function () {
+            $('#myModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var nombre = button.data('nombre');
+                var email = button.data('email');
+                var comentario = button.data('comentario');
+                $('#modal-nombre').text(nombre);
+                $('#modal-email').text(email);
+                $('#modal-comentario').text(comentario);
+            });
+        });
+    </script>
+{% endblock %}
