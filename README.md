@@ -32,4 +32,9 @@ Se uso el mismo probema del proyecto de Spring + Java, pero esta ocasión fue im
   </tbody>
 </table>
 </div>
+
+> [!IMPORTANT]
+>:key: <strong> Usuario</strong>
+>- Admin
+>- Pass: 12345678**
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=ffc107&height=120&section=footer"/>
