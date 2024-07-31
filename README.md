@@ -1,3 +1,5 @@
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=417eb0&height=120&section=header"/>
+
 # :brain: Problemática</h1>
 
 <p> Se desea realizar un sistema informático que permita manejar la información relacionada con la operativa de una aerolínea.
@@ -17,6 +19,7 @@ A los tramos se les puede aplicar diferentes tarifas. Cada tarifa se identifica 
 # Cambios
 Se uso el mismo probema del proyecto de Spring + Java, pero esta ocasión fue implementado con Python + Django.
 
+<div align="center">
 <table>
   <tbody>
      <tr>
@@ -28,3 +31,5 @@ Se uso el mismo probema del proyecto de Spring + Java, pero esta ocasión fue im
      </tr>
   </tbody>
 </table>
+</div>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=ffc107&height=120&section=footer"/>
