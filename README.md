@@ -17,7 +17,7 @@ A los tramos se les puede aplicar diferentes tarifas. Cada tarifa se identifica 
 </p>
 
 # Cambios
-Se uso el mismo probema del proyecto de Spring + Java, pero esta ocasión fue implementado con Python + Django.
+Se uso el mismo probema del proyecto de Spring + Java, pero esta ocasión fue implementado con Python + Django. Esta vez se incorporaron mas consultas y funcionalidades.
 
 <div align="center">
 <table>
