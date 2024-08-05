@@ -386,8 +386,7 @@ def listar_mensajes(request):
 @login_required
 def eliminar_mensaje(request, pk):
     mensaje = get_object_or_404(Mensaje, pk = pk)
-    if request.method == 'POST':
-        mensaje.delete()
+    mensaje.delete()
     return redirect('listar_mensajes')
 
 
