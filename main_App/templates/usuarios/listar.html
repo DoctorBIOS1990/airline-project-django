@@ -37,6 +37,7 @@
                             <table class="table table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>Nº</th>
                                         <th>Nombre de Usuario</th>
                                         <th>Nombre</th>
                                         <th>Apellidos</th>
@@ -48,6 +49,7 @@
                                 <tbody>
                                     {% for u in usuarios %}
                                     <tr class="odd gradeX">
+                                        <td>{{ forloop.counter }}</td>
                                         <td>{{ u.username }}</td>
                                         <td>{{ u.first_name }}</td>
                                         <td>{{ u.last_name }}</td>

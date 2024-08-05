@@ -38,13 +38,15 @@
                             <!--<table class="table  table-bordered table-hover" id="dataTables-example">-->
                                 <thead>
                                     <tr>
-                                        <th>Nombres de Roles</th>
+                                        <th>Nº</th>
+                                        <th>Nombre de Rol</th>
                                         <th class="text-center">OPCIONES</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for r in roles %}
                                     <tr class="odd gradeX">
+                                        <td>{{ forloop.counter }}</td>
                                         <td>{{ r.nombre }}</td>
                                         <td class="text-center">
                                             <a href="{% url 'editar_rol' r.id %}"

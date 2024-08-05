@@ -41,6 +41,7 @@
                             <!--<table class="table  table-bordered table-hover" id="dataTables-example">-->
                                 <thead>
                                     <tr>
+                                        <th>Nº</th>
                                         <th>DNI</th>
                                         <th>Nombre(s)</th>
                                         <th>Primer Apellido</th>
@@ -55,6 +56,7 @@
                                 <tbody>
                                     {% for p in pasajeros %}
                                     <tr class="odd gradeX">
+                                        <td>{{ forloop.counter }}</td>
                                         <td>{{ p.dni }}</td>
                                         <td>{{ p.nombre }}</td>
                                         <td>{{ p.apellido1 }}</td>

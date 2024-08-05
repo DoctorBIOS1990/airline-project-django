@@ -24,6 +24,7 @@
                             <table class="table table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>Nº</th>
                                         <th>Nombre</th>
                                         <th>Fecha</th>
                                         <th>Email</th>
@@ -33,6 +34,7 @@
                                 <tbody>
                                     {% for m in mensajes %}
                                     <tr class="odd gradeX">
+                                        <td>{{ forloop.counter }}</td>
                                         <td>{{ m.nombre }}</td>
                                         <td>{{ m.fecha }}</td>
                                         <td>{{ m.email }}</td>

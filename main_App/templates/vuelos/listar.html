@@ -41,6 +41,7 @@
                             <table class="table table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>Nº</th>
                                         <th>Fecha</th>
                                         <th>Avion</th>
                                         <th>Aeropuerto de salida</th>
@@ -53,6 +54,7 @@
                                 <tbody>
                                     {% for v in vuelos %}
                                     <tr class="odd gradeX">
+                                        <td>{{ forloop.counter }}</td>
                                         <td>{{ v.fecha }}</td>
                                         <td>{{ v.avion.marca }}</td>
                                         <td>{{ v.aeropuerto_salida.nombre }}</td>

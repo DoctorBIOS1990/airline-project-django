@@ -40,6 +40,7 @@
                             <table class="table table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>Nº</th>
                                         <th>Nombre(s)</th>
                                         <th>Descripcion</th>
                                         <th>Descuento</th>
@@ -51,6 +52,7 @@
                                 <tbody>
                                     {% for t in tarifas %}
                                     <tr class="odd gradeX">
+                                        <td>{{ forloop.counter }}</td>
                                         <td>{{ t.nombre }}</td>
                                         <td>{{ t.descripcion }}</td>
                                         <td class="text-center">{{ t.checking }}</td>

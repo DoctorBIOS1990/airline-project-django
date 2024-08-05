@@ -38,6 +38,7 @@
                             <table class="table table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>Nº</th>
                                         <th>Marca</th>
                                         <th>Modelo</th>
                                         <th>Asientos</th>
@@ -50,6 +51,7 @@
                                 <tbody>
                                     {% for av in aviones %}
                                     <tr class="odd gradeX">
+                                        <td>{{ forloop.counter }}</td>
                                         <td class="text-center">{{ av.marca }}</td>
                                         <td class="text-center">{{ av.modelo }}</td>
                                         <td class="text-center">{{ av.asientos }}</td>

@@ -41,6 +41,7 @@
                             <table class="table table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>Nº</th>
                                         <th>Distancia</th>
                                         <th>Duracion</th>
                                         <th>Hora de salida</th>
@@ -56,6 +57,7 @@
                                 <tbody>
                                     {% for t in tramos %}
                                     <tr class="odd gradeX">
+                                        <td>{{ forloop.counter }}</td>
                                         <td>{{ t.kilometraje }}</td>
                                         <td>{{ t.duracion }}</td>
                                         <td>{{ t.hora_salida|time:"h:i A" }}</td>
