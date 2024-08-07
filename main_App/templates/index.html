@@ -50,7 +50,13 @@
                   {% if user.is_authenticated %}
                   <div class="text-center">
                     <center>
-                      <img src="{% static './images/user.png' %}" alt="user logo" width="40"/><br>
+                      {% if not user.rol.nombre == 'Administrador' %}
+                      <img src="{% static './images/user.png' %}" alt="user logo" width="100"/><br>
+                      {% endif %}
+                      {% if user.rol.nombre == 'Administrador' %}
+                      <img src="{% static './images/logoPrint.png' %}" alt="user logo" width="100"/><br>
+                      {% endif %}
+
                       <strong> {{ user.username }}</strong>
                       <p>{{user.rol.nombre}}</p>
                     </center>
@@ -115,7 +121,7 @@
                     </h3>
 
                     {% if success_message %}
-                    <div class="alert alert-warning alert-dismissible" style="width:250px;">
+                    <div class="alert alert-warning alert-dismissible" style="width:270px;">
                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                       <i class="fa fa-check"></i><strong> {{ success_message }}</strong>
                     </div>
@@ -231,7 +237,7 @@
               {% csrf_token %}
                 <input required name="nombre" id="nombre" type="text" placeholder="Jhon Doe" autocomplete="on" maxlength="50" title="Maximo 50 caracteres.">
                 <input required name="email" id="email" type="email" placeholder="jhondoe@gmail.com" autocomplete="on"></br>
-                <textarea name="comentario" id="comentario" cols="35" rows="10">Escriba un comentario</textarea>
+                <textarea name="comentario" id="comentario" cols="35" rows="10" maxlength="255">Escriba un comentario</textarea>
                 <center><input type="submit" value="Enviar" class="submit"></center>
             </form>
            

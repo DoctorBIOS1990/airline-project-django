@@ -11,16 +11,17 @@ from .forms import AuthenticationForm
 from main_App.querys import *
 
 def index(request):
+    success_message = request.session.pop('success_message', None)
     if request.method == 'POST':
         form = MensajeForm(request.POST)
         if form.is_valid():
             form.save()
-            mensaje = "¡Gracias por su mensaje"
-            return render(request, 'index.html',{'form': form, 'success_message': mensaje})
+            request.session['success_message'] = "¡Gracias por su mensaje"
+            return redirect('index')
     else:
-        mensaje = ""
+        # mensaje = ""
         form = MensajeForm()
-    return render(request, 'index.html', {'form': form, 'success_message': mensaje})
+    return render(request, 'index.html', {'form': form, 'success_message': success_message})
  
  
 def iniciar_sesion(request):
@@ -377,18 +378,19 @@ def eliminar_reserva(request, pk):
 @role_required(['Administrador', 'Supervisor'])
 @login_required
 def listar_mensajes(request):
+    success_message = request.session.pop('success_message', None)
     mensajes = Mensaje.objects.all()
     return render(request, 'mensajes/listar.html', 
-                  {'mensajes': mensajes, 
-                   'total': is_empty(mensajes_count(), True )})
+                  {'mensajes': mensajes, 'total': is_empty(mensajes_count(), True ), 
+                   'success_message': success_message})
 
 @role_required(['Administrador', 'Supervisor'])
 @login_required
 def eliminar_mensaje(request, pk):
     mensaje = get_object_or_404(Mensaje, pk = pk)
     mensaje.delete()
+    request.session['success_message'] ='¡Se ha borrado el mensaje!'
     return redirect('listar_mensajes')
-
 
 """ SEGURIDAD ---------------------------------------------------------------"""
 
@@ -410,7 +412,7 @@ def crear_rol(request):
         form = RolForm(request.POST)
         if form.is_valid():
             form.save()
-            request.session['success_message'] = 'Rol creado correctamente!'
+            request.session['success_message'] = '¡Rol creado correctamente!'
             return redirect('listar_roles')
     else:
         form = RolForm()

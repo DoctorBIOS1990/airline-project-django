@@ -15,7 +15,14 @@
                         <i class="fa fa-paper-plane-o"></i><strong> Cola de Mensajes</strong>
                     </div>
                     <div class="panel-body">
-                        <div class="table-responsive ">
+                        {% if success_message %}
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <i class="fa fa-trash"></i><strong> {{ success_message }}</strong>
+                        </div>
+                        {% endif %}
+    
+                        <div class="table-responsive">
                         <center>
                                 <p style="font-size: 50px"><i class="fa fa-paper-plane-o"></i>                           
                                 <strong style="font-size: 20px;"> Total: ( {{ total }} )</strong></p>
@@ -96,14 +103,16 @@
                                         <td><strong id="modal-email"></strong></td>
                                     </td>
                                 </tr>
-                                
                             </tbody>
                         </table>
-                        <table class="table table-bordered table-hover">
+                        <table class="table table-bordered">
                             <tbody>
-                                <td class="odd gradeX">
-                                    <strong id="modal-comentario"></strong>
-                                </td>
+                                <tr class="odd gradeX">
+                                    <td class="odd gradeX" style="height: 250px;">
+                                        <p></p>
+                                        <textarea id="modal-comentario" readonly></textarea>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
