@@ -33,9 +33,23 @@ Se uso el mismo probema del proyecto de Spring + Java, pero esta ocasión fue im
 </table>
 </div>
 
+# 📸 Capturas
+
+<div align="center">
+  <img src="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/blob/main/Screenshots/ScreenShot_20240731210631.jpeg" width="150"/> 
+  <img src="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/blob/main/Screenshots/ScreenShot_20240731210707.jpeg" width="150"/> 
+  <img src="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/blob/main/Screenshots/ScreenShot_20240731210729.jpeg" width="150"/> 
+  <img src="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/blob/main/Screenshots/ScreenShot_20240731210748.jpeg" width="150"/> 
+  <img src="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/blob/main/Screenshots/ScreenShot_20240731210804.jpeg" width="150"/> 
+  <img src="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/blob/main/Screenshots/ScreenShot_20240731210856.jpeg" width="150"/> 
+  <img src="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/blob/main/Screenshots/ScreenShot_20240731210911.jpeg" width="150"/> 
+  <img src="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/blob/main/Screenshots/ScreenShot_20240731210920.jpeg" width="150"/> 
+  <br><a target="_blank" href="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/tree/main/Screenshots"> Otras capturas.</a>
+</div>
+
 > [!IMPORTANT]
 >:key: <strong> Usuario</strong>
 >- Admin
 >- Pass: 12345678**
->- <a target="_blank" href="https://www.linkedin.com/posts/jorge-benito-ug%C3%A1s_engineering-subject-project-front-html5-activity-7258899152963526656-f1wV?utm_source=share&utm_medium=member_desktop"> Review</a>
+>- <a target="_blank" href="https://www.linkedin.com/posts/jorge-benito-ug%C3%A1s_engineering-subject-project-front-html5-activity-7258899152963526656-f1wV?utm_source=share&utm_medium=member_desktop"> Video</a>
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=ffc107&height=120&section=footer"/>
