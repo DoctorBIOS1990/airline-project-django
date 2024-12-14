@@ -42,7 +42,7 @@
 The same problem was used in the Spring + Java project, but this time it was implemented with Python + Django. This time more queries and functionalities were incorporated.
 
 <div align="center">
-<table>
+<table align="center">
   <tbody>
      <tr>
        <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40" title="Java"/></td>
