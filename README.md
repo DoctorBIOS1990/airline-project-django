@@ -42,7 +42,6 @@
 The same problem was used in the Spring + Java project, but this time it was implemented with Python + Django. This time more queries and functionalities were incorporated.
 
 <div align="center">
-<center>
 <table>
   <tbody>
      <tr>
@@ -54,7 +53,6 @@ The same problem was used in the Spring + Java project, but this time it was imp
      </tr>
   </tbody>
 </table>
-</center>
 </div>
 
 # 📸 Screenshots
