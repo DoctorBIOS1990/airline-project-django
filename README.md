@@ -69,6 +69,11 @@ The same problem was used in the Spring + Java project, but this time it was imp
   <br><a target="_blank" href="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/tree/main/Screenshots"> Others screenshots.</a>
 </div>
 
+# Run
+```python
+python manage.py runserver.
+```
+
 > [!IMPORTANT]
 >:key: <strong> User:</strong>
 >- Admin
