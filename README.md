@@ -71,7 +71,7 @@ The same problem was used in the Spring + Java project, but this time it was imp
 
 # Run
 ```python
-python manage.py runserver.
+python manage.py runserver
 ```
 
 > [!IMPORTANT]
