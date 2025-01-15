@@ -55,8 +55,15 @@ The same problem was used in the Spring + Java project, but this time it was imp
 </table>
 </div>
 
-# 📸 Screenshots
+# Lenguajes | Tecnologias | Herramientas
+:heavy_check_mark:<strong> Frontend: </strong> HTML5 | CSS | Javascript | Bootstrap</br>
+:heavy_check_mark:<strong> Backend: </strong> Python 3.12 | DJango ORM | DTL</br>
+:heavy_check_mark:<strong> Base Datos: </strong> Sqlite </br>
+:heavy_check_mark:<strong> Tecnologias: </strong> DJango </br>
+:heavy_check_mark:<strong> Herramientas: </strong> Visual Studio Code | Draw.IO | Visual Paradigm </br>
 
+
+# 📸 Screenshots
 <div align="center">
   <img src="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/blob/main/Screenshots/ScreenShot_20240731210631.jpeg" width="150"/> 
   <img src="https://github.com/DoctorBIOS1990/aereolinea_AereoGesti/blob/main/Screenshots/ScreenShot_20240731210707.jpeg" width="150"/> 
